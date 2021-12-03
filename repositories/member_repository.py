@@ -4,7 +4,7 @@ from models.member import Member
 
 def save(member):
     sql = "INSERT INTO members (first_name, last_name, wallet) VALUES (%s, %s, %s) RETURNING id"
-    values = [member.first_name]
+    values = [member.first_name, member.last_name, member.wallet]
     results = run_sql(sql, values)
     member.id = results[0]['id']
     return member

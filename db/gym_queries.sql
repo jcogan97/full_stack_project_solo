@@ -4,7 +4,8 @@ DROP TABLE IF EXISTS gym_classes;
 
 CREATE TABLE members(
     id SERIAL PRIMARY KEY,
-    full_name VARCHAR(255),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
     wallet INT
 );
 
