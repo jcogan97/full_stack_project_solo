@@ -34,3 +34,7 @@ def select(id):
     if result is not None:
         booking = Booking(result['member_id'], result['gym_class_id'], result['id'])
     return booking
+
+def delete_all():
+    sql = "DELETE  FROM bookings"
+    run_sql(sql)

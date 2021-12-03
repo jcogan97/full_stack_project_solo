@@ -31,3 +31,7 @@ def select(id):
     if result is not None:
         member = Member(result['full_name'], result['wallet'], result['id'])
     return member
+
+def delete_all():
+    sql = "DELETE  FROM members"
+    run_sql(sql)

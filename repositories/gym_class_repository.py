@@ -33,3 +33,7 @@ def select(id):
     if result is not None:
         gym_class = GymClass(result['description'], result['duration'], result['available_slots'], result['type'], result['id'])
     return gym_class
+
+def delete_all():
+    sql = "DELETE  FROM gym_classes"
+    run_sql(sql)
