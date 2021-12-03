@@ -1,6 +1,7 @@
 class Member:
-    def __init__(self, full_name, wallet, id = None):
+    def __init__(self, first_name, last_name, wallet, id = None):
         
-        self.full_name = full_name
+        self.first_name = first_name
+        self.last_name = last_name
         self.wallet = wallet
         self.id = id
