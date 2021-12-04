@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>{{ member.first_name }} {{ member.last_name }}</h1>
+
+    <h3>Classes Attending:</h3>
+                
+    <table>
+        <tr>
+            <th>Type</th>
+            <th></th>
+            <th>Description </th>
+
+        </tr>
+
+        {% for gym_class in gym_classes %}
+
+        <tr>
+            <td>{{ gym_class.type }}</td>
+            <td>|</td>
+            <th><a href="/class/{{ gym_class.id }}">{{ gym_class.description }}</a></th>
+        </tr>
+
+        {% endfor %}
+
+    </table> 
+{% endblock content %}
