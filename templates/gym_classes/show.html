@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Class {{ gym_class.id }}</h1>
+
+    <p>Description: {{ gym_class.description }}</p>
+
+    <h3>Members Attending:</h3>
+    <ul>
+
+        {% for member in members %}
+
+        <li>{{ member.first_name }} {{ member.last_name }}</li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock content %}
