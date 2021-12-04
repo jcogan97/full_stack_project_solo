@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>Register New Member</h1>
+
+    <form action="/members" method="post">
+        <div>
+            <label for="first_name">First Name: </label>
+            <input type="text" id="first_name" name="first_name" placeholder="Enter Your First Name" required>
+        </div>
+
+        <div>
+            <label for="last_name">Last Name: </label>
+            <input type="text" id="last_name" name="last_name" placeholder="Enter Your Last Name" required>
+        </div>
+
+        <input type="submit" value="Register">
+    </form>
+
+{% endblock content %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask import Blueprint
 from models.gym_class import GymClass
 import repositories.member_repository as member_repository
@@ -16,3 +16,18 @@ def show_gym_class(id):
     gym_class = gym_class_repository.select(id)
     members = member_repository.members(gym_class)
     return render_template("gym_classes/show.html", gym_class=gym_class, members=members)
+
+@gym_classes_blueprint.route('/classes/new')
+def new_class():
+    return render_template('gym_classes/new.html')
+
+@gym_classes_blueprint.route('/classes', methods=['POST'])
+def register_class():
+    description = request.form['description']
+    duration = request.form['duration']
+    available_slots = request.form['available_slots']
+    type = request.form['type']
+    new_class = GymClass(description, duration, available_slots, type)
+    
+    gym_class_repository.save(new_class)
+    return redirect('/classes')
