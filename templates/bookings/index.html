@@ -4,9 +4,24 @@
     
     <h1>Bookings</h1>
 
-    <p>
-        <a href="/bookings/new">New Booking</a>
-    </p>
+    <h5>Create Booking</h5>
+
+    <form action="/bookings" method="post">
+        <label for="member">Member:</label>
+            <select name="member_id" id="member">
+                {% for member in members %}
+                    <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
+                {% endfor %}
+            </select>
+
+        <label for="gym_class">Class:</label>
+            <select name="gym_class_id" id="gym_class">
+                {% for gym_class in gym_classes %}
+                    <option value="{{ gym_class.id }}">Class {{ gym_class.id }}</option>
+                {% endfor %}
+            </select>
+        <input type="submit" value="Register Booking">
+    </form>
 
     <ul>
         {% for booking in bookings %}
