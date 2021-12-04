@@ -36,6 +36,11 @@ def delete_all():
     sql = "DELETE  FROM members"
     run_sql(sql)
     
+def delete(id):
+    sql = "DELETE  FROM bookings WHERE = %s"
+    values = [id]
+    run_sql(sql, values)
+    
 def update(member):
     sql = "UPDATE members SET (first_name, last_name) = (%s, %s) WHERE id = %s"
     values = [member.first_name, member.last_name, member.id]
