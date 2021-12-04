@@ -37,7 +37,7 @@ def delete_all():
     run_sql(sql)
     
 def delete(id):
-    sql = "DELETE  FROM bookings WHERE = %s"
+    sql = "DELETE  FROM members WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     

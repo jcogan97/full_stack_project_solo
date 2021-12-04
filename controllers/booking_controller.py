@@ -30,3 +30,8 @@ def new_booking():
     booking_repository.save(new_booking)
     
     return redirect('/bookings')
+
+@bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
+def delete_booking(id):
+    booking_repository.delete(id)
+    return redirect('/bookings')
