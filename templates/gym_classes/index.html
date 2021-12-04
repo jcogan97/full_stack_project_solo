@@ -12,6 +12,8 @@
             <th>Description</th>
             <th></th>
             <th>Type</th>
+            <th></th>
+            <th>Edit</th>
         </tr>
 
         {% for gym_class in gym_classes %}
@@ -22,6 +24,8 @@
             <td>{{ gym_class.description }}</td>
             <td>|</td>
             <td>{{ gym_class.type }}</td>
+            <td>|</td>
+            <td><a href="/classes/{{ gym_class.id }}/edit"><button>Edit</button></a></td>
         </tr>
 
         {% endfor %}
