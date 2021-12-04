@@ -20,7 +20,9 @@ def select_all():
     results = run_sql(sql)
     
     for row in results:
-        booking = Booking(row['member_id'], row['gym_class_id'], row['id'])
+        member = member_repository.select(row['member_id'])
+        gym_class = gym_class_repository.select(row['gym_classes_id'])
+        booking = Booking(member, gym_class, row['id'])
         bookings.append(booking)
     return bookings
 

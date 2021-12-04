@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>Bookings</h1>
+
+    <p>
+        <a href="/bookings/new">New Booking</a>
+    </p>
+
+    <ul>
+        {% for booking in bookings %}
+        <li>
+            <p>{{ booking.member.first_name }} {{ booking.member.last_name }} - Class {{ booking.gym_class.id }}</p>
+            <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
+            <p>
+                <form action="/bookings/{{ booking.id }}/delete" method="post">
+                    <input type="submit" value="Cancel Booking">
+                </form>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
