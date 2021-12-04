@@ -26,6 +26,11 @@
             <td>{{ gym_class.type }}</td>
             <td>|</td>
             <td><a href="/classes/{{ gym_class.id }}/edit"><button>Edit</button></a></td>
+            <td>|</td>
+            <td><form action="/classes/{{ gym_class.id }}/delete" method="post">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
 
         {% endfor %}

@@ -45,3 +45,8 @@ def update_member(id):
     
     member_repository.update(edit_member)
     return redirect(f"/members/{id}")
+
+@members_blueprint.route('/members/<id>/delete', methods=['POST'])
+def delete_member(id):
+    member_repository.delete(id)
+    return redirect(url_for(".members"))

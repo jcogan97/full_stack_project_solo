@@ -10,8 +10,13 @@
       </tr>
         {% for member in members %}
           <tr>
-            <td><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a>
-            <a href="/members/{{ member.id }}/edit"><button>Edit</button></a></td>
+            <td><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a></td>
+            <td><a href="/members/{{ member.id }}/edit"><button>Edit</button></a></td>
+            <td>
+              <form action="members/{{ member.id }}/delete", method="post">
+                <input type="submit" value="Delete Member">
+              </form>
+            </td>
           </tr>
         {% endfor %}
     </table>

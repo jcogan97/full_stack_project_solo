@@ -30,7 +30,7 @@ def register_class():
     new_class = GymClass(description, duration, available_slots, type)
     
     gym_class_repository.save(new_class)
-    return redirect('/classes')
+    return redirect(url_for('.gym_classes'))
 
 @gym_classes_blueprint.route('/classes/<id>/edit')
 def edit_class(id):
@@ -48,3 +48,8 @@ def update_class(id):
     
     gym_class_repository.update(updated_class)
     return redirect(f'/classes/{id}')
+
+@gym_classes_blueprint.route('/classes/<id>/delete', methods=['POST'])
+def delete_class(id):
+    gym_class_repository.delete(id)
+    return redirect(url_for('.gym_classes'))
