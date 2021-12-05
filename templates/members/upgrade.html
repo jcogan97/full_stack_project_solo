@@ -2,10 +2,15 @@
 
 {% block content %}
 
+    {% for membership in memberships %}
+
     <div>
-        <p>{{ row }} Membership</p>
-        <p>All Classes will have entry fees.</p>
+        <p>{{ membership.type }} Membership</p>
+        <p>This membership includes <b>{{ membership.free_classes }}</b> free classes.</p>
+        <p>£{{ membership.cost }}</p>
         
     </div>
+
+    {% endfor %}
     
 {% endblock content %}

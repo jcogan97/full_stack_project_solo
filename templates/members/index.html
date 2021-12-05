@@ -15,7 +15,7 @@
           <tr>
             <td><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a></td>
             <td></td>
-            <td>{{ member.membership }}</td>
+            <td>{{ member.membership.type }}</td>
             <td><a href="/members/{{ member.id }}/edit"><button>Edit</button></a></td>
             <td>
               <form action="members/{{ member.id }}/delete", method="post">

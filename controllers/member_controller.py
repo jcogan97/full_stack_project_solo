@@ -59,4 +59,6 @@ def delete_member(id):
 @members_blueprint.route('/members/<id>/upgrade')
 def upgrade_member_membership(id):
     member = member_repository.select(id)
-    return render_template('/members/upgrade.html', member=member)
+    memberships = membership_repository.select_all()
+    return render_template('/members/upgrade.html', member=member, memberships=memberships)
+
