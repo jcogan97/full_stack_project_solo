@@ -1,10 +1,12 @@
 from db.run_sql import run_sql
 from models.gym_class import GymClass
 from models.member import Member
+import repositories.membership_repository as membership_repository
 
 def save(member):
-    sql = "INSERT INTO members (first_name, last_name, membership, wallet) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [member.first_name, member.last_name, member.membership, member.wallet]
+
+    sql = "INSERT INTO members (first_name, last_name, membership_type, wallet) VALUES (%s, %s, %s, %s) RETURNING id"
+    values = [member.first_name, member.last_name, member.membership.id, member.wallet]
     results = run_sql(sql, values)
     member.id = results[0]['id']
     return member
@@ -17,7 +19,8 @@ def select_all():
     results = run_sql(sql)
     
     for row in results:
-        member = Member(row['first_name'], row['last_name'], row['membership'], row['wallet'], row['id'])
+        membership = membership_repository.select(row['membership_type'])
+        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['id'])
         members.append(member)
     return members
 
@@ -29,7 +32,8 @@ def select(id):
     result = run_sql(sql, values)[0]
     
     if result is not None:
-        member = Member(result['first_name'], result['last_name'], result['membership'], result['wallet'], result['id'])
+        membership = membership_repository.select(result['membership_type'])
+        member = Member(result['first_name'], result['last_name'], membership, result['wallet'], result['id'])
     return member
 
 def delete_all():
@@ -42,8 +46,8 @@ def delete(id):
     run_sql(sql, values)
     
 def update(member):
-    sql = "UPDATE members SET (first_name, last_name) = (%s, %s) WHERE id = %s"
-    values = [member.first_name, member.last_name, member.id]
+    sql = "UPDATE members SET (first_name, last_name, membership_type) = (%s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.membership, member.id]
     run_sql(sql, values)
     
 def members(gym_class):
