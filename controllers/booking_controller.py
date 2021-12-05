@@ -26,9 +26,7 @@ def new_booking():
     gym_class = gym_class_repository.select(gym_class_id)
     
     new_booking = Booking(member, gym_class)
-    
     booking_repository.save(new_booking)
-    
     return redirect('/bookings')
 
 @bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
