@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask import Blueprint
 from controllers.gym_class_controller import gym_classes
 from models.member import Member
+from console import membership_1
 import repositories.member_repository as member_repository
 import repositories.gym_class_repository as gym_class_repository
 import repositories.membership_repository as membership_repository
@@ -28,7 +29,7 @@ def new_member():
 def register_member():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    new_member = Member(first_name, last_name)
+    new_member = Member(first_name, last_name, membership_1)
     
     member_repository.save(new_member)
     return redirect(url_for(".members"))

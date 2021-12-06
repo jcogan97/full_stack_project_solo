@@ -45,18 +45,20 @@ gym_class_repository.save(class_2)
 class_3 = GymClass("Strength", 30, 5, "Functional")
 gym_class_repository.save(class_3)
 
-booking_1 = Booking(member_1, class_1)
-booking_repository.save(booking_1)
+# booking_1 = Booking(member_1, class_1)
+# booking_repository.save(booking_1)
 
-booking_2 = Booking(member_1, class_3)
-booking_repository.save(booking_2)
+# booking_2 = Booking(member_1, class_3)
+# booking_repository.save(booking_2)
 
-booking_3 = Booking(member_2, class_1)
-booking_repository.save(booking_3)
+# booking_3 = Booking(member_2, class_1)
+# booking_repository.save(booking_3)
 
-booking_4 = Booking(member_3, class_2)
-booking_repository.save(booking_4)
+# booking_4 = Booking(member_3, class_2)
+# booking_repository.save(booking_4)
 
 # member_3.pay_membership(5)
 # pdb.set_trace()
 # member_repository.update(member_3)
+
+# pdb.set_trace()
