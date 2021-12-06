@@ -28,7 +28,7 @@ def new_booking():
     member = member_repository.select(member_id)
     gym_class = gym_class_repository.select(gym_class_id)
     
-    if member.pay_membership(gym_class.entry_fee) == False:
+    if member.payment(gym_class.entry_fee) == False:
         
         return redirect('/bookings/payment_error')
     else:

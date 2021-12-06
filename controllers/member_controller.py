@@ -36,17 +36,20 @@ def register_member():
 @members_blueprint.route('/members/<id>/edit')
 def edit_member(id):
     member = member_repository.select(id)
-    return render_template('members/edit.html', member=member)
+    memberships = membership_repository.select_all()
+    return render_template('members/edit.html', member=member, memberships=memberships)
 
 @members_blueprint.route('/members/<id>', methods=['POST'])
 def update_member(id):
-    # pdb.set_trace()
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    membership = request.form['membership']
+    wallet = request.form['wallet']
     # print(membership)
+    
     member = member_repository.select(id)
-    edit_member = Member(first_name, last_name, membership, member.wallet, id)
+    membership = membership_repository.select(member.membership.id)
+    # pdb.set_trace()
+    edit_member = Member(first_name, last_name, membership, wallet, id)
     
     member_repository.update(edit_member)
     return redirect(url_for('.members'))

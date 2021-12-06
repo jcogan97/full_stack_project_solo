@@ -2,8 +2,7 @@ from models import membership
 
 
 class Member:
-    # def __init__(self, first_name, last_name, membership = "Free", wallet = 10, id = None):
-    # Add a method called classes_remaining 
+    
     def __init__(self, first_name, last_name, membership, wallet = 10, id = None):
         
         self.first_name = first_name
@@ -19,7 +18,7 @@ class Member:
         if self.classes_remaining is not 0:
             self.classes_remaining -= 1
     
-    def pay_membership(self, fee):
+    def payment(self, fee):
         if self.sufficient_funds(fee):
             self.wallet -= fee
         else:

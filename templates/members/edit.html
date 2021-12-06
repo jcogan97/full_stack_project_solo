@@ -14,11 +14,14 @@
         </div>
 
         <div>
-            <select name="membership" id="membership">
-                {% for membership in member.membership_ids %}
-                    <option value="{{ membership.type }}">{{ membership.type }}</option>
+            <label for="wallet">Account Credit: </label>
+            <input type="text" id="wallet", name="wallet", value="{{ member.wallet }}">
+            
+            <!-- <select name="membership" id="membership">
+                {% for membership in memberships %}
+                    <option value="{{ membership.id }}">{{ membership.type }}</option>
                 {% endfor %}
-            </select>
+            </select> -->
         </div>
 
         <input type="submit" value="Edit Member">

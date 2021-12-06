@@ -16,6 +16,7 @@ CREATE TABLE members(
     last_name VARCHAR(255),
     -- membership VARCHAR(255),
     membership_id INT REFERENCES memberships(id) ON DELETE CASCADE,
+    class_remaining INT,
     wallet INT
 );
 
