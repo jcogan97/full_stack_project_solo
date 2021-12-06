@@ -1,3 +1,5 @@
+import pdb
+
 from models import member
 from models import booking
 from models.member      import Member
@@ -22,16 +24,16 @@ membership_repository.save(membership_1)
 membership_2 = Membership("Silver", 5, 3)
 membership_repository.save(membership_2)
 
-membership_3 = Membership("Gold", 10, 100)
+membership_3 = Membership("Gold", 10, 10)
 membership_repository.save(membership_3)
 
-member_1 = Member("Henry", "Cavill", membership_2, 20)
+member_1 = Member("Henry", "Cavill", membership_1, 20)
 member_repository.save(member_1)
 
 member_2 = Member("Jack", "Cogan", membership_1, 1)
 member_repository.save(member_2)
 
-member_3 = Member("Tristan", "McDonald", membership_3, 8)
+member_3 = Member("Jackson", "Abascal", membership_1, 8)
 member_repository.save(member_3)
 
 class_1 = GymClass("Cycling", 30, 3, "Cardio")
@@ -54,3 +56,7 @@ booking_repository.save(booking_3)
 
 booking_4 = Booking(member_3, class_2)
 booking_repository.save(booking_4)
+
+# member_3.pay_membership(5)
+# pdb.set_trace()
+# member_repository.update(member_3)

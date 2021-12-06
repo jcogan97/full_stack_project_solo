@@ -15,7 +15,7 @@ CREATE TABLE members(
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     -- membership VARCHAR(255),
-    membership_type INT REFERENCES memberships(id) ON DELETE CASCADE,
+    membership_id INT REFERENCES memberships(id) ON DELETE CASCADE,
     wallet INT
 );
 
@@ -24,7 +24,8 @@ CREATE TABLE gym_classes(
     description VARCHAR(255),
     duration INT,
     available_slots INT,
-    type VARCHAR(255)
+    type VARCHAR(255),
+    entry_fee INT
 );
 
 CREATE TABLE bookings(

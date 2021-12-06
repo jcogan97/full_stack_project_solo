@@ -26,7 +26,7 @@
     <ul>
         {% for booking in bookings %}
         <li>
-            <p>{{ booking.member.first_name }} {{ booking.member.last_name }} - Class {{ booking.gym_class.id }}</p>
+            <p><a href="/members/{{ booking.member.id }}">{{ booking.member.first_name }} {{ booking.member.last_name }}</a> - Class {{ booking.gym_class.id }}</p>
             <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
             <p>
                 <form action="/bookings/{{ booking.id }}/delete" method="post">

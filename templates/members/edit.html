@@ -15,8 +15,8 @@
 
         <div>
             <select name="membership" id="membership">
-                {% for membership in member.membership_types %}
-                    <option value="{{ membership }}">{{ membership }}</option>
+                {% for membership in member.membership_ids %}
+                    <option value="{{ membership.type }}">{{ membership.type }}</option>
                 {% endfor %}
             </select>
         </div>
