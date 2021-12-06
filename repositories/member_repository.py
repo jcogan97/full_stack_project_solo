@@ -59,7 +59,8 @@ def members(gym_class):
     results = run_sql(sql, values)
     
     for row in results:
-        member = Member(row['first_name'], row['last_name'], row['membership'], row['wallet'], row['id'])
+        membership = membership_repository.select(row['membership_id'])
+        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['id'])
         members.append(member)
         
     return members

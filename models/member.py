@@ -1,6 +1,3 @@
-from models import membership
-
-
 class Member:
     
     def __init__(self, first_name, last_name, membership, wallet = 10, id = None):

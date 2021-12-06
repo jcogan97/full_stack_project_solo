@@ -1,3 +1,5 @@
+import pdb
+
 from flask import Flask, render_template, request, redirect, url_for
 from flask import Blueprint
 from models.gym_class import GymClass
@@ -14,6 +16,7 @@ def gym_classes():
 @gym_classes_blueprint.route('/classes/<id>')
 def show_gym_class(id):
     gym_class = gym_class_repository.select(id)
+    # pdb.set_trace()
     members = member_repository.members(gym_class)
     return render_template("gym_classes/show.html", gym_class=gym_class, members=members)
 
