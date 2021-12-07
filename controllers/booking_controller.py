@@ -36,9 +36,10 @@ def new_booking():
         member_repository.update(member)
         # pdb.set_trace()
         return redirect('/bookings')
-    elif member.payment(gym_class.entry_fee) == False:
+    elif member.sufficient_funds(gym_class.entry_fee) == False:
         return redirect('/bookings/payment_error')
     else:
+        member.payment(gym_class.entry_fee)
         new_booking = Booking(member, gym_class)
         booking_repository.save(new_booking)
         # print(gym_class.entry_fee)

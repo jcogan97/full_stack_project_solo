@@ -23,20 +23,20 @@ def select_all():
     
     for row in results:
         membership = membership_repository.select(row['membership_id'])
-        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['id'])
+        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['classes_remaining'], row['id'])
         members.append(member)
     return members
 
 def select(id):
 
     member = None
-    sql = "SELECT * FROM members WHERE id = %s"
+    sql = "SELECT * FROM members WHERE id = %s" 
     values = [id]
     result = run_sql(sql, values)[0]
     
     if result is not None:
         membership = membership_repository.select(result['membership_id'])
-        member = Member(result['first_name'], result['last_name'], membership, result['wallet'], result['id'])
+        member = Member(result['first_name'], result['last_name'], membership, result['wallet'], result['classes_remaining'], result['id'])
     return member
 
 def delete_all():
@@ -49,8 +49,8 @@ def delete(id):
     run_sql(sql, values)
     
 def update(member):
-    sql = "UPDATE members SET (first_name, last_name, membership_id, classes_remaining, wallet) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [member.first_name, member.last_name, member.membership.id, member.classes_remaining, member.wallet, member.id]
+    sql = "UPDATE members SET (first_name, last_name, membership_id, wallet, classes_remaining) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.membership.id, member.wallet, member.classes_remaining, member.id]
     run_sql(sql, values)
     
 def members(gym_class):
@@ -63,7 +63,7 @@ def members(gym_class):
     
     for row in results:
         membership = membership_repository.select(row['membership_id'])
-        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['id'])
+        member = Member(row['first_name'], row['last_name'], membership, row['wallet'], row['classes_remaining'], row['id'])
         members.append(member)
         
     return members

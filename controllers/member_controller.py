@@ -50,11 +50,13 @@ def update_member(id):
     # print(membership)
     
     member = member_repository.select(id)
-    membership = membership_repository.select(member.membership.id)
-    # pdb.set_trace()
-    edit_member = Member(first_name, last_name, membership, wallet, id)
     
-    member_repository.update(edit_member)
+    # pdb.set_trace()
+    member.first_name = first_name
+    member.last_name = last_name
+    member.wallet = wallet
+    
+    member_repository.update(member)
     return redirect(url_for('.members'))
 
 @members_blueprint.route('/members/<id>/delete', methods=['POST'])
@@ -73,7 +75,11 @@ def user_selected_membership(id):
     membership_id = request.form['membership_id']
     membership = membership_repository.select(membership_id)
     member = member_repository.select(id)
-
-    edited_member = Member(member.first_name, member.last_name, membership, member.wallet, member.id)
-    member_repository.update(edited_member)
-    return redirect(f'/members/{id}')
+    if member.sufficient_funds(membership.cost) == False:
+        return redirect('/bookings/payment_error')
+    else:
+        member.payment(membership.cost)
+        member.set_membership(membership)
+        # edited_member = Member(member.first_name, member.last_name, membership, member.wallet, member.id)
+        member_repository.update(member)
+        return redirect(f'/members/{id}')
