@@ -19,7 +19,7 @@ def members():
 def show_classes(id):
     member = member_repository.select(id)
     gym_classes = gym_class_repository.gym_classes(member)
-    return render_template('members/show.html', gym_classes=gym_classes, member=member)
+    return render_template('members/show.html', gym_classes=gym_classes, member=member, membership=member.membership)
 
 @members_blueprint.route('/members/register')
 def new_member():
@@ -27,10 +27,12 @@ def new_member():
 
 @members_blueprint.route('/members', methods=['POST'])
 def register_member():
+    # pdb.set_trace()
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    new_member = Member(first_name, last_name, membership_1)
-    
+    membership_id = request.form['membership']
+    membership = membership_repository.select(membership_id)
+    new_member = Member(first_name, last_name, membership)
     member_repository.save(new_member)
     return redirect(url_for(".members"))
 
@@ -66,3 +68,12 @@ def upgrade_member_membership(id):
     memberships = membership_repository.select_all()
     return render_template('/members/upgrade.html', member=member, memberships=memberships)
 
+@members_blueprint.route('/members/<id>/upgrade', methods=['POST'])
+def user_selected_membership(id):
+    membership_id = request.form['membership_id']
+    membership = membership_repository.select(membership_id)
+    member = member_repository.select(id)
+
+    edited_member = Member(member.first_name, member.last_name, membership, member.wallet, member.id)
+    member_repository.update(edited_member)
+    return redirect(f'/members/{id}')

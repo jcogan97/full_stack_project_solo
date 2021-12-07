@@ -1,3 +1,5 @@
+import pdb
+
 from db.run_sql import run_sql
 from models.gym_class import GymClass
 from models.member import Member
@@ -5,10 +7,11 @@ import repositories.membership_repository as membership_repository
 
 def save(member):
 
-    sql = "INSERT INTO members (first_name, last_name, membership_id, wallet) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [member.first_name, member.last_name, member.membership.id, member.wallet]
-    results = run_sql(sql, values)
-    member.id = results[0]['id']
+    sql = "INSERT INTO members (first_name, last_name, membership_id, classes_remaining, wallet) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    membership = membership_repository.select(member.membership.id)
+    values = [member.first_name, member.last_name, membership.id, member.classes_remaining, member.wallet]
+    results = run_sql(sql, values)[0]
+    member.id = results['id']
     return member
 
 def select_all():

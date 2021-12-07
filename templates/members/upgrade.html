@@ -9,11 +9,11 @@
         <p>This membership includes <b>{{ membership.free_classes }}</b> classes.</p>
         <p>£{{ membership.cost }}</p>
         <form action="/members/{{ member.id }}/upgrade" method="post">
-            <label for="upgrade">{{ membership.id }}</label>
+            <input type="hidden" name="membership_id" value="{{ membership.id }}">
             <input type="submit" value="Upgrade">
         </form>
     </div>
 
     {% endfor %}
     
-{% endblock content %}
+{% endblock content %}  

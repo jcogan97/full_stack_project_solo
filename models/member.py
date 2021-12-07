@@ -26,6 +26,12 @@ class Member:
         
     def sufficient_funds(self, fee):
         return self.wallet >= fee
+    
+    def remaining_classes(self):
+        if self.classes_remaining != 0:
+            return False
+        else:
+            return True
         
     def membership_logic(self):
         pass

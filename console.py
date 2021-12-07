@@ -58,7 +58,6 @@ gym_class_repository.save(class_3)
 # booking_repository.save(booking_4)
 
 # member_3.pay_membership(5)
-# pdb.set_trace()
 # member_repository.update(member_3)
 
 # pdb.set_trace()
