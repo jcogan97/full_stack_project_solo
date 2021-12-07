@@ -1,0 +1,81 @@
+body {
+    background-image: url(/static/images/lotr.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #0068D1;
+}
+
+.clear-fix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 0;
+    width: 20%;
+    height: 20%;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 20px;
+    padding-top: 31px;
+
+    position: relative;
+}
+
+/* .push-right::after {
+    padding-right: 30px ;
+} */
+
+nav li a {
+    color: #dddddd;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+nav li a:hover{
+    color: #000
+}
+
+nav li a::before{
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+
+    position: absolute;
+    top: 0;
+    width: 0%;
+
+    transition: all ease-in-out 150ms;
+}
+
+nav li a:hover::before {
+    width: 100%;
+}
