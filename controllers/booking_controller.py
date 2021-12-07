@@ -27,12 +27,8 @@ def new_booking():
     
     member = member_repository.select(member_id)
     gym_class = gym_class_repository.select(gym_class_id)
-    bookings = booking_repository.select_all()
     # pdb.set_trace()
-    
-    if member.payment(gym_class.entry_fee) == False:
-        return redirect('/bookings/payment_error')
-    else:
+    if member.membership.type != "Free" and member.classes_remaining > 0:
         member.decrease_remaining_classes()
         new_booking = Booking(member, gym_class)
         booking_repository.save(new_booking)
@@ -40,6 +36,16 @@ def new_booking():
         member_repository.update(member)
         # pdb.set_trace()
         return redirect('/bookings')
+    elif member.payment(gym_class.entry_fee) == False:
+        return redirect('/bookings/payment_error')
+    else:
+        new_booking = Booking(member, gym_class)
+        booking_repository.save(new_booking)
+        # print(gym_class.entry_fee)
+        member_repository.update(member)
+        # pdb.set_trace()
+        return redirect('/bookings')
+
 
 @bookings_blueprint.route('/bookings/payment_error')
 def member_cannot_pay():

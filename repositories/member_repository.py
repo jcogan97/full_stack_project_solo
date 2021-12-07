@@ -49,8 +49,8 @@ def delete(id):
     run_sql(sql, values)
     
 def update(member):
-    sql = "UPDATE members SET (first_name, last_name, membership_id, wallet) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [member.first_name, member.last_name, member.membership.id, member.wallet, member.id]
+    sql = "UPDATE members SET (first_name, last_name, membership_id, classes_remaining, wallet) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.membership.id, member.classes_remaining, member.wallet, member.id]
     run_sql(sql, values)
     
 def members(gym_class):

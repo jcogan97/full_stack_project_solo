@@ -12,7 +12,7 @@ class Member:
         # self.membership_ids = ["Free", "Silver", "Gold"]
         
     def decrease_remaining_classes(self):
-        if self.classes_remaining is not 0:
+        if self.classes_remaining > 0:
             self.classes_remaining -= 1
     
     def payment(self, fee):
