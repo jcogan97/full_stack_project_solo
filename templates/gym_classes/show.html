@@ -11,9 +11,8 @@
         <p><b>Available Slots:</b> {{ gym_class.available_slots }}</p>
         <p><b>Type:</b> {{ gym_class.type }}</p>
     </div>
-    <br>
-    <h3 class="block-for-info color-white">Members Attending:</h3>
-    <br>
+    <br>    
+    <h3 class="block-for-info color-white" id="text-font">Members Attending:</h3>
     <ul id="flex-block">
 <div class="block-for-info members-attending" id="text-font">
         {% for member in members %}
