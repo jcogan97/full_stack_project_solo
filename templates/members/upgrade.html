@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<br>
+<br>
+<div id="margin-block">
     {% for membership in memberships %}
 
-    <div>
-        <p>{{ membership.type }} Membership</p>
+    <div class="block-for-info color-white">
+        <p ><span id="{{ membership.type }}-color">{{ membership.type }}</span> Membership</p>
         <p>This membership includes <b>{{ membership.free_classes }}</b> classes.</p>
         <p>£{{ membership.cost }}</p>
-        <form type="hidden" action="/members/{{ member.id }}/upgrade" method="post" hidden>
+        <form id="upgrade-form-padding" type="hidden" action="/members/{{ member.id }}/upgrade" method="post">
             <input type="hidden" name="membership_id" value="{{ membership.id }}">
-            <input type="submit" value="Upgrade">
+            <input class="submit-button" type="submit" value="Upgrade">
         </form>
     </div>
-
+<br>
     {% endfor %}
-    
+</div>
 {% endblock content %}  

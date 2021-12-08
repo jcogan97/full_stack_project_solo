@@ -13,7 +13,7 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-p {
+p, #text-font {
     font-family: 'Saira Condensed', sans-serif;
 }
 
@@ -135,16 +135,40 @@ nav li a:hover::before {
     color: white;
 }
 
-.block-for-info {
+#margin-block {
+    margin: auto;
+    width: 20%;
+}
+
+#upgrade-form-padding {
+    padding-top: 5px;
+}
+
+#Free-color {
+    color: rgb(179, 101, 28);
+}
+
+#Silver-color {
+    color: silver;
+}
+
+#Gold-color {
+    color: gold;
+}
+
+#flex-block {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    padding-top: 30px;
+    justify-content: space-evenly;
+}
+
+.block-for-info {   
     background: rgb(255, 115, 0, .5);
     border-radius: 15px;
     outline: 1px solid white;
     text-align: center;
     padding: 15px;
-    margin: auto;
-    width: 12%;
 }
 
 .block-for-info p {
@@ -186,6 +210,12 @@ nav li a:hover::before {
     text-align: left;
     color: white;
     font-size: larger;
+}
+
+.members-attending {
+    text-align: center;
+    margin: auto;
+    width: 50%;
 }
 
 /* ------------------------------------------------ */

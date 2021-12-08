@@ -4,22 +4,24 @@
 
 <br>
 <br>
-    
-    <div class="block-for-info">
+<div id="margin-block">
+    <div class="block-for-info color-white">
         <p><b>Description:</b> {{ gym_class.description }}</p>
         <p><b>Duration:</b> {{ gym_class.duration }} mins</p>
         <p><b>Available Slots:</b> {{ gym_class.available_slots }}</p>
         <p><b>Type:</b> {{ gym_class.type }}</p>
     </div>
-    <h3>Members Attending:</h3>
-    <ul>
-
+    <br>
+    <h3 class="block-for-info color-white">Members Attending:</h3>
+    <br>
+    <ul id="flex-block">
+<div class="block-for-info members-attending">
         {% for member in members %}
 
         <li><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a></li>
-
+        <br>
         {% endfor %}
-
+    </div>
     </ul>
-
+</div>
 {% endblock content %}

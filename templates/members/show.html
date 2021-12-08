@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="block-for-info">
+<br>
+<br>
+<div id="margin-block">
+    <div class="block-for-info color-white" id="text-font">
         <h1>{{ member.first_name }} {{ member.last_name }}</h1>
 
         <p>Account Credit: {{ member.wallet }}</p>
 
-        <p>Current Membership: {{ membership.type }}</p>
+        <p>Current Membership: <u>{{ membership.type }}</u></p>
 
         <a href="/members/{{ member.id }}/upgrade" class="submit-button">Upgrade Member</a>
-    </div>  
-    <div>
-        <h3>Classes Attending:</h3>
+    </div>
+    <br>
+</div>
+    <div id="margin-block" class="block-for-info">
+        <h3 class="color-white" id="text-font">Classes Attending:</h3>
     </div>       
+    <br>
         <table class="table_classes">
             <tr>
                 <th>Type</th>

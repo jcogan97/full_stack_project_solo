@@ -24,21 +24,22 @@
     </form>
 
     <br>
-
-    <ul>
-        {% for booking in bookings %}
-        <li class="block-for-info">
-            <span class="color-white">
-                <p><a href="/members/{{ booking.member.id }}">{{ booking.member.first_name }} {{ booking.member.last_name }}</a> - Class {{ booking.gym_class.id }}</p>
-                <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
-                <p>
-                    <form action="/bookings/{{ booking.id }}/delete" method="post">
-                        <input class="submit-button" type="submit" value="Cancel Booking">
-                    </form>
-                </p>
-            </span>
-        </li>
-        {% endfor %}
-    </ul>
+    <div>
+        <ul id="flex-block">
+            {% for booking in bookings %}
+            <li class="block-for-info">
+                <span class="color-white">
+                    <p><a href="/members/{{ booking.member.id }}">{{ booking.member.first_name }} {{ booking.member.last_name }}</a> - Class {{ booking.gym_class.id }}</p>
+                    <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
+                    <p>
+                        <form action="/bookings/{{ booking.id }}/delete" method="post">
+                            <input class="submit-button" type="submit" value="Cancel Booking">
+                        </form>
+                    </p>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock content %}
