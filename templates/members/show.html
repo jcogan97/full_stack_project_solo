@@ -8,23 +8,20 @@
 
     <p>Current Membership: {{ membership.type }}</p>
 
-    <a href="/members/{{ member.id }}/upgrade"><button>Upgrade Member</button></a>
+    <a href="/members/{{ member.id }}/upgrade" class="submit-button">Upgrade Member</a>
 
     <h3>Classes Attending:</h3>
                 
-    <table>
+    <table class="table_classes">
         <tr>
             <th>Type</th>
-            <th></th>
             <th>Description </th>
-
         </tr>
 
         {% for gym_class in gym_classes %}
 
         <tr>
             <td>{{ gym_class.type }}</td>
-            <td>|</td>
             <th><a href="/classes/{{ gym_class.id }}">{{ gym_class.description }}</a></th>
         </tr>
 

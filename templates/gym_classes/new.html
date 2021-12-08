@@ -2,30 +2,31 @@
 
 {% block content %}
     
-    <h1>Create New Class</h1>
+    <div class="form-box-parent">
+        <h1>Create New Class</h1>
+        <form class="form-box" action="/classes" method="post">
+            <div>
+                <label for="description">Description: </label>
+                <input type="text", id="description", name="description", placeholder="Description" required>
+            </div>
 
-    <form action="/classes" method="post">
-        <div>
-            <label for="description">Description: </label>
-            <input type="text", id="description", name="description", placeholder="Description" required>
-        </div>
-        
-        <div>
-            <label for="duration">Duration: </label>
-            <input type="text", id="duration", name="duration", placeholder="Duration in Mins" required>
-        </div>
+            <div>
+                <label for="duration">Duration: </label>
+                <input type="text", id="duration", name="duration", placeholder="Duration in Mins" required>
+            </div>
 
-        <div>
-            <label for="available_slots">Available Slots: </label>
-            <input type="text", id="available_slots", name="available_slots", placeholder="Available Slots" required>
-        </div>
+            <div>
+                <label for="available_slots">Available Slots: </label>
+                <input type="text", id="available_slots", name="available_slots", placeholder="Available Slots" required>
+            </div>
 
-        <div>
-            <label for="type">Type: </label>
-            <input type="text", id="type", name="type", placeholder="Cardio, Strength, etc" required>
-        </div>
+            <div>
+                <label for="type">Type: </label>
+                <input type="text", id="type", name="type", placeholder="Cardio, Strength, etc" required>
+            </div>
 
-        <input type="submit", value="Register Class">
-    </form>
+            <input type="submit", value="Register Class">
+        </form>
+    </div>
 
 {% endblock content %}

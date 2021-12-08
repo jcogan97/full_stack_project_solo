@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <form action="/classes/{{ gym_class.id }}" method="post">
-        <div>
-            <label for="description">Description: </label>
-            <input type="text", id="description", name="description", value="{{ gym_class.description }}">
-        </div>
-
-        <div>
-            <label for="duration">Duration: </label>
-            <input type="text", id="duration", name="duration", value="{{ gym_class.duration }}"> Mins
-        </div>
-
-        <div>
-            <label for="available_slots">Available Slots: </label>
-            <input type="text", id="available_slots", name="available_slots", value="{{ gym_class.available_slots }}">
-        </div>
-
-        <div>
-            <label for="type">Type: </label>
-            <input type="text", id="type", name="type", value="{{ gym_class.type }}">
-        </div>
-
-        <input type="submit" value="Edit Class">
-    </form>
+    <div class="form-box-parent">
+        <form class="form-box" action="/classes/{{ gym_class.id }}" method="post">
+            <div>
+                <label for="description">Description: </label>
+                <input type="text", id="description", name="description", value="{{ gym_class.description }}">
+            </div>
+        
+            <div>
+                <label for="duration">Duration: </label>
+                <input type="text", id="duration", name="duration", value="{{ gym_class.duration }}"> Mins
+            </div>
+        
+            <div>
+                <label for="available_slots">Available Slots: </label>
+                <input type="text", id="available_slots", name="available_slots", value="{{ gym_class.available_slots }}">
+            </div>
+        
+            <div>
+                <label for="type">Type: </label>
+                <input type="text", id="type", name="type", value="{{ gym_class.type }}">
+            </div>
+        
+            <input type="submit" value="Edit Class">
+        </form>
+    </div>
 
 {% endblock content %}

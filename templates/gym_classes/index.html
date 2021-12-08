@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Classes</h1>
-
-    <p><a href="/classes/new">New Class</a></p>
-
-    <table>
+<br>
+<br>
+<div id="new-classes">
+    <a href="/classes/new" class="submit-button">New Class</a>
+<br>
+<br>
+    <table class="table_classes">
         <tr>
             <th>Class</th>
-            <th></th>
             <th>Description</th>
-            <th></th>
             <th>Type</th>
-            <th></th>
             <th>Edit</th>
         </tr>
 
@@ -20,19 +19,19 @@
 
         <tr>
             <td><a href="/classes/{{ gym_class.id }}">Class {{ gym_class.id }}</td>
-            <td>|</td>
             <td>{{ gym_class.description }}</td>
-            <td>|</td>
+
             <td>{{ gym_class.type }}</td>
-            <td>|</td>
-            <td><a href="/classes/{{ gym_class.id }}/edit"><button>Edit</button></a></td>
-            <td>|</td>
+
+            <td><a href="/classes/{{ gym_class.id }}/edit" class="submit-button">Edit</a></td>
+
             <td><form action="/classes/{{ gym_class.id }}/delete" method="post">
-                    <input type="submit" value="Delete">
+                    <input class="submit-button" type="submit" value="Delete">
                 </form>
             </td>
         </tr>
 
         {% endfor %}
     </table>
+</div>
 {% endblock content %}
