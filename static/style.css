@@ -158,7 +158,8 @@ nav li a:hover::before {
 
 #flex-block {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-top: 30px;
     justify-content: space-evenly;
 }
@@ -169,6 +170,7 @@ nav li a:hover::before {
     outline: 1px solid white;
     text-align: center;
     padding: 15px;
+    margin-bottom: 20px;
 }
 
 .block-for-info p {
@@ -249,6 +251,10 @@ nav li a:hover::before {
     overflow: hidden;
     width: 30%;
     max-width: 300px;
+}
+
+.edit-padding {
+    padding: 10px;
 }
 
 a.submit-button {

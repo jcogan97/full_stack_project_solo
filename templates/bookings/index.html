@@ -16,7 +16,7 @@
         <label for="gym_class">Class:</label>
             <select name="gym_class_id" id="gym_class">
                 {% for gym_class in gym_classes %}
-                    <option value="{{ gym_class.id }}">Class {{ gym_class.id }}</option>
+                    <option value="{{ gym_class.id }}">{{ gym_class.description }}</option>
                 {% endfor %}
             </select>
             <br>

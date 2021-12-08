@@ -9,7 +9,7 @@
 
         <p>Account Credit: {{ member.wallet }}</p>
 
-        <p>Current Membership: <u>{{ membership.type }}</u></p>
+        <p>Current Membership: <u id="{{ membership.type}}-color">{{ membership.type }}</u></p>
 
         <a href="/members/{{ member.id }}/upgrade" class="submit-button">Upgrade Member</a>
     </div>

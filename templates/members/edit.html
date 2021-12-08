@@ -5,17 +5,17 @@
     <br>
     <div class="form-box-parent">
         <form class="form-box" action="/members/{{ member.id }}" method="post">
-            <div>
+            <div class="edit-padding">
                 <label for="first_name">First Name: </label>
                 <input type="text", id="first_name", name="first_name", value="{{ member.first_name }}">
             </div>
-        
-            <div>
+
+            <div class="edit-padding">
                 <label for="last_name">Last Name: </label>
                 <input type="text", id="last_name", name="last_name", value="{{ member.last_name }}">
             </div>
-        
-            <div>
+
+            <div class="edit-padding">
                 <label for="wallet">Account Credit: </label>
                 <input type="text" id="wallet", name="wallet", value="{{ member.wallet }}">
                 
@@ -25,8 +25,8 @@
                     {% endfor %}
                 </select> -->
             </div>
-        
-            <input type="submit" value="Edit Member">
+
+            <input class="submit-button edit-padding" type="submit" value="Edit Member">
         </form>
     </div>
 
