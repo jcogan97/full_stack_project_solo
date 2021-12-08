@@ -23,17 +23,11 @@ footer {
     width: 100%;
 }
 
-/* .left-box {
-    position:fixed;
-    padding:0;
-    margin:0;
-
-    top:0;
-    left:0;
-
-    width: 100%;
-    height: 100%;
-} */
+#error {
+    color: red;
+    font-size: x-large;
+    font-family: 'Coda', cursive;
+}
 
 header {
     background: rgb(221, 107, 0);
@@ -137,18 +131,44 @@ nav li a:hover::before {
     mix-blend-mode: multiply;
 }
 
+.color-white {
+    color: white;
+}
+
+.block-for-info {
+    display: flex;
+    flex-direction: row;
+    background: rgb(255, 115, 0, .5);
+    border-radius: 15px;
+    outline: 1px solid white;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    width: 12%;
+}
+
+.block-for-info p {
+    padding: 5px;
+}
+
+.block-for-info a {
+    text-decoration: none;
+    color: white;
+}
+
 .table_classes {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(255, 115, 0, .5);
     /* border-collapse: collapse; */
     width: 45%;
-    margin-left: 26.5%;
+    margin-left: 28%;
     border-radius: 15px;
     outline: 1px solid white;
 }
 
 .table_classes td, .table_classes th {
     padding: 15px;
+    color: #ffffff;
 }
 
 .table_classes a:link {
@@ -240,6 +260,9 @@ input.submit-button:hover{
     background-color: #ffffff;
 }
 
-#new_classes a.submit-button {
-    padding: 0.5em 0.5em;
+#new-classes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

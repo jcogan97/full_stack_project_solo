@@ -1,31 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <h1>{{ member.first_name }} {{ member.last_name }}</h1>
+    <div class="block-for-info">
+        <h1>{{ member.first_name }} {{ member.last_name }}</h1>
 
-    <p>Account Credit: {{ member.wallet }}</p>
+        <p>Account Credit: {{ member.wallet }}</p>
 
-    <p>Current Membership: {{ membership.type }}</p>
+        <p>Current Membership: {{ membership.type }}</p>
 
-    <a href="/members/{{ member.id }}/upgrade" class="submit-button">Upgrade Member</a>
+        <a href="/members/{{ member.id }}/upgrade" class="submit-button">Upgrade Member</a>
+    </div>  
+    <div>
+        <h3>Classes Attending:</h3>
+    </div>       
+        <table class="table_classes">
+            <tr>
+                <th>Type</th>
+                <th>Description </th>
+            </tr>
 
-    <h3>Classes Attending:</h3>
-                
-    <table class="table_classes">
-        <tr>
-            <th>Type</th>
-            <th>Description </th>
-        </tr>
+            {% for gym_class in gym_classes %}
 
-        {% for gym_class in gym_classes %}
+            <tr>
+                <td>{{ gym_class.type }}</td>
+                <th><a href="/classes/{{ gym_class.id }}">{{ gym_class.description }}</a></th>
+            </tr>
 
-        <tr>
-            <td>{{ gym_class.type }}</td>
-            <th><a href="/classes/{{ gym_class.id }}">{{ gym_class.description }}</a></th>
-        </tr>
+            {% endfor %}
 
-        {% endfor %}
-
-    </table> 
+        </table> 
 {% endblock content %}

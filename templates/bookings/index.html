@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <h1>Bookings</h1>
 
-    <h5>Create Booking</h5>
+<br>
+<br>
 
     <form class="form-box" action="/bookings" method="post">
         <label for="member">Member:</label>
@@ -13,26 +12,31 @@
                     <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
                 {% endfor %}
             </select>
-
+            <br>
         <label for="gym_class">Class:</label>
             <select name="gym_class_id" id="gym_class">
                 {% for gym_class in gym_classes %}
                     <option value="{{ gym_class.id }}">Class {{ gym_class.id }}</option>
                 {% endfor %}
             </select>
-        <input type="submit" value="Register Booking">
+            <br>
+        <input class='submit-button' type="submit" value="Register Booking">
     </form>
+
+    <br>
 
     <ul>
         {% for booking in bookings %}
-        <li>
-            <p><a href="/members/{{ booking.member.id }}">{{ booking.member.first_name }} {{ booking.member.last_name }}</a> - Class {{ booking.gym_class.id }}</p>
-            <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
-            <p>
-                <form action="/bookings/{{ booking.id }}/delete" method="post">
-                    <input type="submit" value="Cancel Booking">
-                </form>
-            </p>
+        <li class="block-for-info">
+            <span class="color-white">
+                <p><a href="/members/{{ booking.member.id }}">{{ booking.member.first_name }} {{ booking.member.last_name }}</a> - Class {{ booking.gym_class.id }}</p>
+                <p>Class Description:<b><i> {{ booking.gym_class.description }}</i></b></p>
+                <p>
+                    <form action="/bookings/{{ booking.id }}/delete" method="post">
+                        <input class="submit-button" type="submit" value="Cancel Booking">
+                    </form>
+                </p>
+            </span>
         </li>
         {% endfor %}
     </ul>
