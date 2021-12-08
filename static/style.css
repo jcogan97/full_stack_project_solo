@@ -144,6 +144,12 @@ nav li a:hover::before {
     padding-top: 5px;
 }
 
+#edit-member-padding {
+    padding: 5px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #Free-color {
     color: rgb(179, 101, 28);
 }

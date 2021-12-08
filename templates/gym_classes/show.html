@@ -15,11 +15,10 @@
     <h3 class="block-for-info color-white">Members Attending:</h3>
     <br>
     <ul id="flex-block">
-<div class="block-for-info members-attending">
+<div class="block-for-info members-attending" id="text-font">
         {% for member in members %}
 
-        <li><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a></li>
-        <br>
+        <li id="edit-member-padding"><a href="/members/{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</a></li>
         {% endfor %}
     </div>
     </ul>
