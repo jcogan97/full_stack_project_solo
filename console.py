@@ -21,10 +21,10 @@ membership_repository.delete_all()
 membership_1 = Membership("Free", 0, 0)
 membership_repository.save(membership_1)
 
-membership_2 = Membership("Silver", 5, 3)
+membership_2 = Membership("Silver", 10, 3)
 membership_repository.save(membership_2)
 
-membership_3 = Membership("Gold", 15, 8)
+membership_3 = Membership("Gold", 15, 6)
 membership_repository.save(membership_3)
 
 member_1 = Member("Henry", "Cavill", membership_3, 20)
